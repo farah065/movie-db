@@ -1,0 +1,61 @@
+# Ignore ASP.NET Core files
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+# Visual Studio 2022
+.vscode/
+.vs/
+*.sln.docstates
+*.ncrunchsolution
+*.resharper
+_ReSharper*
+*.opendb
+*.opendb-shm
+*.opendb-wal
+.idea/
+
+# Ignore ASP.NET Core build outputs
+bin/
+obj/
+wwwroot/
+
+# Ignore sensitive configuration files
+appsettings*.json
+
+# Ignore EF migrations and cache
+*.efmigrationshistory
+*.sqlite
+
+# Ignore Docker files
+docker-compose.yml
+Dockerfile
+.env
+
+# Ignore publish output
+publish/
+out/
+
+# Ignore npm and React files
+node_modules/
+build/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Ignore IDE-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore coverage results from tests
+coverage/
+
+# Ignore package-lock.json or yarn.lock files
+package-lock.json
+yarn.lock
