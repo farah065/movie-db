@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
 
-function MovieGrid({ results, setResults }) {
+function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovieDetails }) {
     return (
         <div id="movie-grid">
             {results.map((movie) => (
@@ -10,6 +10,10 @@ function MovieGrid({ results, setResults }) {
                     year={movie.release_Date}
                     poster={movie.poster_Path}
                     id={movie.id}
+                    openDetails={openDetails}
+                    setOpenDetails={setOpenDetails}
+                    movieDetails={movieDetails}
+                    setMovieDetails={setMovieDetails}
                 />
             ))}
         </div>

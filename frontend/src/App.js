@@ -1,10 +1,13 @@
 import './App.css';
 import MovieGrid from './Components/MovieGrid';
+import MovieDetails from './Components/MovieDetails';
 import Search from './Components/Search';
 import { useState, useEffect } from 'react';
 
 function App() {
     const [results, setResults] = useState([]);
+    const [openDetails, setOpenDetails] = useState(false);
+    const [movieDetails, setMovieDetails] = useState({});
 
     useEffect(() => {
         // Function to fetch the popular movies from your backend
@@ -28,6 +31,7 @@ function App() {
 
     return (
         <main className="page-contents">
+            <MovieDetails openDetails={openDetails} setOpenDetails={setOpenDetails} movieDetails={movieDetails} />
             <div id="top-bar">
                 <Search results={results} setResults={setResults} />
                 <img
@@ -35,7 +39,7 @@ function App() {
                     width="180"
                 />
             </div>
-            <MovieGrid results={results} setResults={setResults} />
+            <MovieGrid results={results} openDetails={openDetails} setOpenDetails={setOpenDetails} movieDetails={movieDetails} setMovieDetails={setMovieDetails} />
         </main>
     );
 }
