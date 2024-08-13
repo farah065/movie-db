@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3% 0;
+    width: 60%;
+    margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-bar {
+    position: relative;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.search-field {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #888;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-bar > button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    padding: 8px;
+    background-color: transparent;
+    width: 40px;
+    height: 100%;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-left: 1px solid #888;
+}
+
+#movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+    grid-auto-rows: 1fr;
+    justify-content: space-between;
+    row-gap: 32px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.02);
+}
+
+.movie-card img {
+    width: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#movie-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 12px;
+    text-align: center;
+}
+
+#movie-year {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 2px;
+    color: #666;
 }
