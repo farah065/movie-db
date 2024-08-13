@@ -1,13 +1,13 @@
 ﻿namespace movie_db.Models.DTO
 {
-    public class PopularMoviesDTO
+    public class MovieResultsDTO
     {
         public int Page { get; set; }
-        public List<PopularMovieDetailsDTO> Results { get; set; }
+        public List<ResultMovieDetailsDTO> Results { get; set; }
         public int TotalPages { get; set; }
         public int TotalResults { get; set; }
     }
-    public class PopularMovieDetailsDTO
+    public class ResultMovieDetailsDTO
     {
         public bool Adult { get; set; }
         public string BackdropPath { get; set; }

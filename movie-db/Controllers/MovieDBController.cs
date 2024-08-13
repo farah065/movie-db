@@ -55,5 +55,19 @@ namespace movie_db.Controllers
             // Return the movies
             return Ok(popularMoviesDto);
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchMovie(String keyword)
+        {
+            // Fetch popular movies from TMDB API
+            var popularMoviesDto = await _tmdbService.SearchMovie(keyword);
+            if (popularMoviesDto == null)
+            {
+                return NotFound();
+            }
+
+            // Return the movies
+            return Ok(popularMoviesDto);
+        }
     }
 }
