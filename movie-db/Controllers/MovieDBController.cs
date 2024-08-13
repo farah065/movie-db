@@ -41,5 +41,19 @@ namespace movie_db.Controllers
             // Return the movie details
             return Ok(movieDto);
         }
+
+        [HttpGet("popular")]
+        public async Task<IActionResult> GetPopularMovies(int page)
+        {
+            // Fetch popular movies from TMDB API
+            var popularMoviesDto = await _tmdbService.GetPopularMovies(page);
+            if (popularMoviesDto == null)
+            {
+                return NotFound();
+            }
+
+            // Return the movies
+            return Ok(popularMoviesDto);
+        }
     }
 }

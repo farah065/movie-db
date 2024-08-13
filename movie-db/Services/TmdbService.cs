@@ -24,5 +24,13 @@ namespace movie_db.Services
             var movie = JsonConvert.DeserializeObject<MovieDTO>(response);
             return movie;
         }
+
+        public async Task<PopularMoviesDTO> GetPopularMovies(int page)
+        {
+            var requestUrl = $"https://api.themoviedb.org/3/movie/popular?api_key={_apiKey}&page={page}";
+            var response = await _httpClient.GetStringAsync(requestUrl);
+            var movies = JsonConvert.DeserializeObject<PopularMoviesDTO>(response);
+            return movies;
+        }
     }
 }

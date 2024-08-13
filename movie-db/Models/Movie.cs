@@ -15,7 +15,7 @@ namespace movie_db.Models
         public int? Budget { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
-        public string? Genres { get; set; } // Store as JSON string
+        public string? Genres { get; set; }
 
         public string? Homepage { get; set; }
         public string? ImdbId { get; set; }
@@ -27,17 +27,17 @@ namespace movie_db.Models
         public string? PosterPath { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
-        public string? ProductionCompanies { get; set; } // Store as JSON string
+        public string? ProductionCompanies { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
-        public string? ProductionCountries { get; set; } // Store as JSON string
+        public string? ProductionCountries { get; set; }
 
         public DateTime? ReleaseDate { get; set; }
         public int? Revenue { get; set; }
         public int? Runtime { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
-        public string? SpokenLanguages { get; set; } // Store as JSON string
+        public string? SpokenLanguages { get; set; }
 
         public string? Status { get; set; }
         public string? Tagline { get; set; }
