@@ -3,12 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace movie_db.Models.DTO
 {
+    public class BelongsToCollectionDTO
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Poster_Path { get; set; }
+        public string? Backdrop_Path { get; set; }
+    }
+
     public class MovieDTO
     {
         public int Id { get; set; }
         public bool? Adult { get; set; }
         public string? Backdrop_Path { get; set; }
-        public string? Belongs_To_Collection { get; set; }
+        public BelongsToCollectionDTO? Belongs_To_Collection { get; set; }
         public int? Budget { get; set; }
         public List<GenreDTO>? Genres { get; set; }
         public string? Homepage { get; set; }
