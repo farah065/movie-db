@@ -14,6 +14,7 @@ function MovieCard(props) {
             }
             const data = await response.json();
             props.setMovieDetails(data);
+            console.log(data);
             props.setOpenDetails(true);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
@@ -21,10 +22,14 @@ function MovieCard(props) {
     }
 
     return (
-        <div className="movie-card" id={props.id} onClick={() => viewDetails(props.id)}>
-            <img src={`https://image.tmdb.org/t/p/original/${posterPath}`} alt="Movie Poster" />
-            <h3 id="movie-title">{props.title}</h3>
-            <p id="movie-year">({extractYear(props.year)})</p>
+        <div className="card-container" id={props.id}>
+            <div className="movie-card" onClick={() => viewDetails(props.id)}>
+                <div className="card-img-container">
+                    <img src={`https://image.tmdb.org/t/p/original/${posterPath}`} alt="Movie Poster" />
+                </div>
+                <h3 id="movie-title">{props.title}</h3>
+                <p id="movie-year">({extractYear(props.year)})</p>
+            </div>
         </div>
     );
 }

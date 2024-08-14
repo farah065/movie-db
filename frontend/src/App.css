@@ -11,6 +11,7 @@ main {
     padding: 3% 0;
     width: 60%;
     margin: 0 auto;
+    gap: 20px;
 }
 
 #top-bar {
@@ -27,7 +28,7 @@ main {
 
 .search-field {
     width: 100%;
-    padding: 8px 10px;
+    padding: 8px 48px 8px 10px;
     font-size: 16px;
     border-radius: 8px;
     border: 2px solid #888;
@@ -61,23 +62,36 @@ main {
     width: 100%;
 }
 
-.movie-card {
+.card-container {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: transform 0.3s;
+    cursor: pointer;
+
 }
 
 .movie-card:hover {
     transform: scale(1.02);
 }
 
-.movie-card img {
+.card-img-container {
     width: 180px;
+}
+
+.card-img-container > img {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    display: block;
 }
 
 #movie-title {
@@ -92,4 +106,29 @@ main {
     font-weight: 500;
     margin-top: 2px;
     color: #666;
+    text-align: center;
+}
+
+.detail-img-container {
+    width: 270px;
+    flex-shrink: 0;
+}
+
+.detail-img {
+    object-fit: cover;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+}
+
+.detail-container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+}
+
+.detail-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }

@@ -20,13 +20,13 @@ namespace movie_db.Models.DTO
         public int? Budget { get; set; }
         public List<GenreDTO>? Genres { get; set; }
         public string? Homepage { get; set; }
-        public string? ImdbId { get; set; }
+        public string? Imdb_Id { get; set; }
         public string? Original_Language { get; set; }
         public string? Original_Title { get; set; }
 
         public string? Overview { get; set; }
         public double? Popularity { get; set; }
-        public string? PosterPath { get; set; }
+        public string? Poster_Path { get; set; }
         public List<ProductionCompanyDTO>? Production_Companies { get; set; }
         public List<ProductionCountryDTO>? Production_Countries { get; set; }
         public DateTime? Release_Date { get; set; }
