@@ -1,9 +1,7 @@
 import { ReactComponent as SearchSVG } from '../Images/Search.svg';
 import { useState } from 'react';
 
-function Search({ results, setResults }) {
-    const [keyword, setKeyword] = useState("");
-
+function Search({ setResults, keyword, setKeyword }) {
     async function search() {
         if (!keyword) return;
 
@@ -19,6 +17,12 @@ function Search({ results, setResults }) {
         }
     }
 
+    async function handleKeyDown(e) {
+        if (e.key === 'Enter') {
+            search();
+        }
+    }
+
     return (
         <div className="search-bar">
             <input
@@ -27,6 +31,7 @@ function Search({ results, setResults }) {
                 placeholder="Search..."
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
+                onKeyDown={handleKeyDown}
                 maxLength={100}
             />
             <button id="search-button" onClick={search}>

@@ -75,7 +75,6 @@ main {
     align-items: center;
     transition: transform 0.3s;
     cursor: pointer;
-
 }
 
 .movie-card:hover {
@@ -84,6 +83,10 @@ main {
 
 .card-img-container {
     width: 180px;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-img-container > img {
