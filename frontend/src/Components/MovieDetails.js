@@ -26,7 +26,7 @@ function MovieDetails({ openDetails, setOpenDetails, movieDetails }) {
                         <img src={`https://image.tmdb.org/t/p/original/${movieDetails.poster_Path}`} alt="Movie Poster" className="detail-img" />
                     </div>
                 }
-                <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "32ddedpx"}}>
+                <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "32px"}}>
                     <div className="detail-text-container">
                         {movieDetails.original_Title && <h2 id="detail-title">{movieDetails.original_Title}</h2>}
                         {movieDetails.overview && <p id="detail-title">{movieDetails.overview}</p>}

@@ -1,6 +1,4 @@
 function MovieCard(props) {
-    const posterPath = props.poster === null ? "https://via.placeholder.com/180x267" : props.poster;
-
     const extractYear = (dateString) => {
         const date = new Date(dateString);
         return date.getFullYear();
@@ -25,7 +23,12 @@ function MovieCard(props) {
         <div className="card-container" id={props.id}>
             <div className="movie-card" onClick={() => viewDetails(props.id)}>
                 <div className="card-img-container">
-                    <img src={`https://image.tmdb.org/t/p/original/${posterPath}`} alt="Movie Poster" />
+                    {props.poster && props.poster !== "" ?
+                        <img src={`https://image.tmdb.org/t/p/original/${props.poster}`} alt="Movie Poster" />
+                        : <div className="img-placeholder">
+                            <p style={{color: "#999", fontSize: "20px"}}><em>No Image</em></p>
+                        </div>
+                    }
                 </div>
                 <h3 id="movie-title">{props.title}</h3>
                 <p id="movie-year">({extractYear(props.year)})</p>

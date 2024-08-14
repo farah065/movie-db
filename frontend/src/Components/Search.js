@@ -1,9 +1,9 @@
 import { ReactComponent as SearchSVG } from '../Images/Search.svg';
-import { useState } from 'react';
 
-function Search({ setResults, keyword, setKeyword }) {
+function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword, setPrevKeyword }) {
     async function search() {
         if (!keyword) return;
+        if (keyword === prevKeyword) return;
 
         try {
             const response = await fetch(`http://localhost:5259/api/MovieDB/search?keyword=${encodeURIComponent(keyword)}`);
@@ -12,6 +12,8 @@ function Search({ setResults, keyword, setKeyword }) {
             }
             const data = await response.json();
             setResults(data.results);
+            setPrevKeyword(keyword);
+            setPopularLoaded(false);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }
