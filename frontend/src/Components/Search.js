@@ -1,6 +1,6 @@
 import { ReactComponent as SearchSVG } from '../Images/Search.svg';
 
-function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword, setPrevKeyword }) {
+function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword, setPrevKeyword, setPage }) {
     async function search() {
         if (!keyword) return;
         if (keyword === prevKeyword) return;
@@ -14,6 +14,7 @@ function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword
             setResults(data.results);
             setPrevKeyword(keyword);
             setPopularLoaded(false);
+            setPage(1);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }

@@ -166,3 +166,15 @@ main {
     color: #666;
     margin-top: 64px;
 }
+
+#load-more {
+    align-self: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 16px;
+    width: 200px;
+    background-color: #efefef;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

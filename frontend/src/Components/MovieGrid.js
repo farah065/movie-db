@@ -1,15 +1,24 @@
 import MovieCard from "./MovieCard";
 
 function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovieDetails }) {
+    // Remove duplicate movies based on their ID
+    const uniqueMovies = results.reduce((acc, current) => {
+        const isDuplicate = acc.find(movie => movie.id === current.id);
+        if (!isDuplicate) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+
     return (
         <>
-            {results.length === 0 ?
+            {uniqueMovies.length === 0 ? (
                 <div id="no-results">
                     <h2><em>No results found</em></h2>
                 </div>
-                :
+            ) : (
                 <div id="movie-grid">
-                    {results.map((movie) => (
+                    {uniqueMovies.map((movie) => (
                         <MovieCard
                             key={movie.id}
                             title={movie.original_Title}
@@ -23,7 +32,7 @@ function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovi
                         />
                     ))}
                 </div>
-            }
+            )}
         </>
     );
 }
