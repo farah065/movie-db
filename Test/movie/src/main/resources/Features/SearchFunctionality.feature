@@ -1,3 +1,4 @@
+@search
 Feature: Movie Search Functionality
   Background:
     Given I open the website "http://localhost:3000/"
