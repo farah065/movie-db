@@ -83,6 +83,7 @@ function App() {
                         onClick={() => fetchPopularMovies()}
                     />
                 </div>
+                <h2 style={{marginBottom: "-18px"}}>{popularLoaded === true ? "Popular Movies" : results.length !== 0 ? "Results" : null}</h2>
                 <MovieGrid results={results} openDetails={openDetails} setOpenDetails={setOpenDetails} movieDetails={movieDetails} setMovieDetails={setMovieDetails} setError={setError} />
                 {popularLoaded === true ? <button onClick={() => loadMore()} id="load-more">Load more</button> : null}
             </main>
