@@ -119,7 +119,7 @@ public class StepDefinition {
 
     @BeforeStep
     public void afterstep() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
     }
     @After
     public void after() throws InterruptedException {
