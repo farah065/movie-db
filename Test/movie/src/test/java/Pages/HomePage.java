@@ -27,5 +27,15 @@ public class HomePage {
     public WebElement homepageButton(){
         return driver.findElement(By.cssSelector("#top-bar > img"));
     }
+    public WebElement homepageTitle(){
+        return driver.findElement(By.cssSelector("#root > div > main > h2"));
+    }
+    public WebElement movieGrid(){
+        return driver.findElement(By.id("movie-grid"));
+    }
+    public WebElement loadMoreButton(){
+        return driver.findElement(By.id("load-more"));
+    }
+
 
 }

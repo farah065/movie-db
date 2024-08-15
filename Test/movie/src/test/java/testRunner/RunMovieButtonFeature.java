@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         features = "src/main/resources/Features",
         glue = {"stepDefinition"},
         plugin = {"pretty", "html:target/cucumber-reports.html"},
-        monochrome = true
+        monochrome = true,
+        tags = "@movies"
 )
-public class TestRunner {
+public class RunMovieButtonFeature {
 }
