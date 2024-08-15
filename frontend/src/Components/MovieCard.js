@@ -13,9 +13,11 @@ function MovieCard(props) {
             const data = await response.json();
             props.setMovieDetails(data);
             console.log(data);
+            props.setError(false);
             props.setOpenDetails(true);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
+            props.setError(true);
         }
     }
 

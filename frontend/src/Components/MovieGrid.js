@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
 
-function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovieDetails }) {
+function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovieDetails, setError }) {
     // Remove duplicate movies based on their ID
     const uniqueMovies = results.reduce((acc, current) => {
         const isDuplicate = acc.find(movie => movie.id === current.id);
@@ -29,6 +29,7 @@ function MovieGrid({ results, openDetails, setOpenDetails, movieDetails, setMovi
                             setOpenDetails={setOpenDetails}
                             movieDetails={movieDetails}
                             setMovieDetails={setMovieDetails}
+                            setError={setError}
                         />
                     ))}
                 </div>

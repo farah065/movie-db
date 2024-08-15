@@ -58,6 +58,10 @@ main {
     border-left: 1px solid #888;
 }
 
+#search-icon {
+    display: block;
+}
+
 #movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
@@ -170,11 +174,42 @@ main {
 #load-more {
     align-self: center;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 8px 16px;
     width: 200px;
     background-color: #efefef;
     outline: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+#error-box {
+    font-weight: 500;
+    background-color: rgb(255, 160, 160);
+    padding: 8px 42px 8px 16px;
+    text-align: center;
+    width: max-content;
+    border-radius: 8px;
+    color: rgb(40, 40, 40);
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+}
+
+#close-error-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 8px 8px 0;
+    padding: 0 8px;
+    cursor: pointer;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid rgb(247, 136, 136);
+}
+
+#close-icon {
+    width: 16px;
+    height: 100%;
 }
