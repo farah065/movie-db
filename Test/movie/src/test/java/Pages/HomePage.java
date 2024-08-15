@@ -11,8 +11,18 @@ public class HomePage {
         this.driver=driver;
     }
 
-    public WebElement movieElement(String movieName){
-        return driver.findElement(By.xpath("//*[contains(text(),'"+movieName+"')]"));
+    public WebElement searchfield(){
+        return driver.findElement(By.id("search-field"));
     }
+    public WebElement searchButton(){
+        return driver.findElement(By.id("search-icon"));
+    }
+    public WebElement firstMovieInTheList(){
+        return driver.findElement(By.xpath("/html/body/div/div/main/div[2]/div[1]/div/h3"));
+    }
+
+//    public WebElement movieElement(String movieName){
+//        return driver.findElement(By.xpath("//*[contains(text(),'"+movieName+"')]"));
+//    }
 
 }
