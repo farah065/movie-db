@@ -36,6 +36,9 @@ public class HomePage {
     public WebElement loadMoreButton(){
         return driver.findElement(By.id("load-more"));
     }
+    public WebElement DescriptinCardElement(){
+        return driver.findElement(By.id("detail-container"));
+    }
 
 
 }

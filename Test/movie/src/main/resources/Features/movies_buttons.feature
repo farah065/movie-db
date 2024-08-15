@@ -34,3 +34,5 @@ Feature: Movies&Buttons
     Then I should see 80 movie elements displayed on the home page
 
   Scenario: verify movie details card appear by click at any movie
+    When Click on the first move at home page
+    Then Description card appear

@@ -108,6 +108,14 @@ public class StepDefinition {
             Thread.sleep(1000);
         }
     }
+    @When("Click on the first move at home page")
+    public void clickOnFirstMovie(){
+        homePage.firstMovieInTheList().click();
+    }
+    @Then("Description card appear")
+    public void checkDescriptionCard(){
+        Assert.assertTrue("Assert description card is displayed",homePage.DescriptinCardElement().isDisplayed());
+    }
 
     @BeforeStep
     public void afterstep() throws InterruptedException {
