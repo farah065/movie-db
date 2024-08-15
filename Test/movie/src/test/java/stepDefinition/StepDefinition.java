@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import Pages.HomePage;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -42,6 +43,24 @@ public class StepDefinition {
         String expectedMovieName=search;
         String actualMovieName=homePage.firstMovieInTheList().getText();
         Assert.assertTrue(actualMovieName.contains(expectedMovieName));
+    }
+    @When("I enter the partial movie name {string} in the search field")
+    public void insertPartialNameInSearch(String movieName){
+        homePage.searchfield().sendKeys(movieName);
+    }
+    @When("I enter a string of 101 characters in the search field")
+    public void insert101CharachtersInsearchField(){
+        String input="a".repeat(101);
+        homePage.searchfield().sendKeys(input);
+        String enteredText = homePage.searchfield().getAttribute("value");
+        Assert.assertEquals("Assert The search field should only accept the first 100 characters",100,enteredText.length());
+    }
+
+
+    @After
+    public void after() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
     }
 
 }
