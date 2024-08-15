@@ -29,8 +29,11 @@ function MovieCard(props) {
                 <div className="card-img-container">
                     {props.poster && props.poster !== "" ?
                         <img src={`https://image.tmdb.org/t/p/original/${props.poster}`} alt="Movie Poster" />
-                        : <div className="img-placeholder">
-                            <p style={{color: "#999", fontSize: "20px"}}><em>No Image</em></p>
+                        :
+                        <div className="img-placeholder">
+                            <p style={{color: "#999", fontSize: "20px"}}>
+                                <em>No Image</em>
+                            </p>
                         </div>
                     }
                 </div>

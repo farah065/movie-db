@@ -29,38 +29,38 @@ function MovieDetails({ openDetails, setOpenDetails, movieDetails }) {
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "32px"}}>
                     <div className="detail-text-container">
                         {movieDetails.original_Title && <h2 id="detail-title">{movieDetails.original_Title}</h2>}
-                        {movieDetails.overview && <p id="detail-title">{movieDetails.overview}</p>}
+                        {movieDetails.overview && <p id="detail-description">{movieDetails.overview}</p>}
                     </div>
                     <div style={{display: "flex", flexDirection: "column", gap: "16px"}}>
                         {(movieDetails.genres && movieDetails.genres.length !== 0) &&
                             <div>
-                                <h5 id="detail-title">Genres</h5>
+                                <h5 className="detail-subtitle">Genres</h5>
                                 <p>{movieDetails.genres.map(genre => genre.name).join(", ")}</p>
                             </div>
                         }
                         {(movieDetails.production_Companies && movieDetails.production_Companies.length !== 0) &&
                             <div>
-                                <h5 id="detail-title">Production Companies</h5>
+                                <h5 className="detail-subtitle">Production Companies</h5>
                                 <p>{movieDetails.production_Companies.map(pc => pc.name).join(", ")}</p>
                             </div>
                         }
                         <div style={{display: "flex", gap: "32px"}}>
                             {(movieDetails.release_Date && movieDetails.release_Date !== null) &&
                                 <div>
-                                    <h5 id="detail-title">Release Date</h5>
+                                    <h5 className="detail-subtitle">Release Date</h5>
                                     <p>{(new Date(movieDetails.release_Date)).toLocaleDateString('en-US', options)}</p>
                                 </div>
                             }
                             {(movieDetails.runtime && movieDetails.runtime !== 0) ?
                                 <div>
-                                    <h5 id="detail-title">Runtime</h5>
+                                    <h5 className="detail-subtitle">Runtime</h5>
                                     <p>{movieDetails.runtime} mins</p>
                                 </div>
                                 : null
                             }
                             {(movieDetails.original_Language) &&
                                 <div>
-                                    <h5 id="detail-title">Language</h5>
+                                    <h5 className="detail-subtitle">Language</h5>
                                     <p>{movieDetails.original_Language}</p>
                                 </div>
                             }
