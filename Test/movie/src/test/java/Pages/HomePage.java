@@ -20,7 +20,9 @@ public class HomePage {
     public WebElement firstMovieInTheList(){
         return driver.findElement(By.xpath("/html/body/div/div/main/div[2]/div[1]/div/h3"));
     }
-
+    public WebElement NoResultsFound(){
+        return driver.findElement(By.xpath("//*[@id=\"no-results\"]/h2/em"));
+    }
 //    public WebElement movieElement(String movieName){
 //        return driver.findElement(By.xpath("//*[contains(text(),'"+movieName+"')]"));
 //    }

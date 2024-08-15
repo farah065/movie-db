@@ -2,12 +2,14 @@ package stepDefinition;
 
 import Pages.HomePage;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -40,9 +42,8 @@ public class StepDefinition {
 
     @Then("I should see the movie {string} in the search results")
     public void checkFirstMovieNameInSearchResults(String search){
-        String expectedMovieName=search;
         String actualMovieName=homePage.firstMovieInTheList().getText();
-        Assert.assertTrue(actualMovieName.contains(expectedMovieName));
+        Assert.assertTrue(actualMovieName.contains(search));
     }
     @When("I enter the partial movie name {string} in the search field")
     public void insertPartialNameInSearch(String movieName){
@@ -52,11 +53,28 @@ public class StepDefinition {
     public void insert101CharachtersInsearchField(){
         String input="a".repeat(101);
         homePage.searchfield().sendKeys(input);
+    }
+
+    @Then("the search field should only accept the first 100 characters")
+    public void assertSearchFieldAccept100ChOnly(){
         String enteredText = homePage.searchfield().getAttribute("value");
         Assert.assertEquals("Assert The search field should only accept the first 100 characters",100,enteredText.length());
     }
+    @Then("I should see a message \"No results found\" displayed on the page")
+    public void assertNoResultsFound(){
+        String expectedMessage= "No results found";
+        String actualMessage=homePage.NoResultsFound().getText();
+        Assert.assertTrue("assert no result found",actualMessage.contains(expectedMessage));
+    }
+    @When("Press Enter at search field")
+    public void pressEnterAtSearchField(){
+        homePage.searchfield().sendKeys(Keys.ENTER);
+    }
 
-
+    @AfterStep
+    public void afterstep() throws InterruptedException {
+        Thread.sleep(500);
+    }
     @After
     public void after() throws InterruptedException {
         Thread.sleep(2000);
