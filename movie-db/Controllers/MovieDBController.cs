@@ -57,10 +57,10 @@ namespace movie_db.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> SearchMovie(String keyword)
+        public async Task<IActionResult> SearchMovie(String keyword, int page)
         {
             // Fetch popular movies from TMDB API
-            var popularMoviesDto = await _tmdbService.SearchMovie(keyword);
+            var popularMoviesDto = await _tmdbService.SearchMovie(keyword, page);
             if (popularMoviesDto == null)
             {
                 return NotFound();

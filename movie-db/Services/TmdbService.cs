@@ -33,13 +33,13 @@ namespace movie_db.Services
             return movies;
         }
 
-        public async Task<MovieResultsDTO> SearchMovie(String keyword)
+        public async Task<MovieResultsDTO> SearchMovie(String keyword, int page)
         {
             // Make sure to URL encode the keyword to handle special characters
             var encodedKeyword = Uri.EscapeDataString(keyword);
 
             // Corrected API endpoint for searching movies by title
-            var requestUrl = $"https://api.themoviedb.org/3/search/movie?query={encodedKeyword}&api_key={_apiKey}&page=1";
+            var requestUrl = $"https://api.themoviedb.org/3/search/movie?query={encodedKeyword}&api_key={_apiKey}&page={page}";
 
             var response = await _httpClient.GetStringAsync(requestUrl);
             var movies = JsonConvert.DeserializeObject<MovieResultsDTO>(response);
