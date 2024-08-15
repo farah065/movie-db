@@ -23,8 +23,9 @@ public class HomePage {
     public WebElement NoResultsFound(){
         return driver.findElement(By.xpath("//*[@id=\"no-results\"]/h2/em"));
     }
-//    public WebElement movieElement(String movieName){
-//        return driver.findElement(By.xpath("//*[contains(text(),'"+movieName+"')]"));
-//    }
+
+    public WebElement homepageButton(){
+        return driver.findElement(By.cssSelector("#top-bar > img"));
+    }
 
 }
