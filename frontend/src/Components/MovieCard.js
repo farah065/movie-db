@@ -1,3 +1,5 @@
+import { BASE_URL } from "../config";
+
 function MovieCard(props) {
     const extractYear = (dateString) => {
         const date = new Date(dateString);
@@ -6,7 +8,7 @@ function MovieCard(props) {
 
     async function viewDetails(id) {
         try {
-            const response = await fetch(`http://localhost:5259/api/MovieDB/${id}`);
+            const response = await fetch(`${BASE_URL}/api/MovieDB/${id}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

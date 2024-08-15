@@ -4,6 +4,7 @@ import MovieDetails from './Components/MovieDetails';
 import Search from './Components/Search';
 import { ReactComponent as CloseSVG } from './Images/Close.svg';
 import { useState, useEffect } from 'react';
+import { BASE_URL } from './config.js';
 
 function App() {
     const [results, setResults] = useState([]);
@@ -18,7 +19,7 @@ function App() {
     async function fetchPopularMovies() {
         if (popularLoaded) return;
         try {
-            const response = await fetch("http://localhost:5259/api/MovieDB/popular?page=1");
+            const response = await fetch(`${BASE_URL}/api/MovieDB/popular?page=1`);
             if (!response.ok) {
                 throw new Error('Failed to fetch popular movies');
             }
@@ -37,7 +38,7 @@ function App() {
 
     async function loadMore() {
         try {
-            const response = await fetch(`http://localhost:5259/api/MovieDB/popular?page=${page + 1}`);
+            const response = await fetch(`${BASE_URL}/api/MovieDB/popular?page=${page + 1}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch popular movies');
             }
@@ -61,7 +62,7 @@ function App() {
             <MovieDetails openDetails={openDetails} setOpenDetails={setOpenDetails} movieDetails={movieDetails} />
             <main className="page-contents">
                 {error === true &&
-                <div style={{display: "flex", justifyContent: "center", zIndex: "10", marginBottom: "12px"}}>
+                <div style={{display: "flex", justifyContent: "center", zIndex: "10", marginBottom: "16px"}}>
                     <div style={{position: "fixed", top: "32px"}}>
                         <div id="error-box">
                             <p id="error-msg"><em>An error has occured, please try again later.</em></p>

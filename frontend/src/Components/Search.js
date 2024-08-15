@@ -1,3 +1,4 @@
+import { BASE_URL } from '../config';
 import { ReactComponent as SearchSVG } from '../Images/Search.svg';
 
 function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword, setPrevKeyword, setPage, setError }) {
@@ -6,7 +7,7 @@ function Search({ setResults, keyword, setKeyword, setPopularLoaded, prevKeyword
         if (keyword === prevKeyword) return;
 
         try {
-            const response = await fetch(`http://localhost:5259/api/MovieDB/search?keyword=${encodeURIComponent(keyword)}`);
+            const response = await fetch(`${BASE_URL}/api/MovieDB/search?keyword=${encodeURIComponent(keyword)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
