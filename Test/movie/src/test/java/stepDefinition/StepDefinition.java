@@ -4,6 +4,7 @@ import Pages.HomePage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -70,14 +71,18 @@ public class StepDefinition {
     public void pressEnterAtSearchField(){
         homePage.searchfield().sendKeys(Keys.ENTER);
     }
+    @When("I click on the home screen button")
+    public void clickOnHomePageButton(){
+        homePage.homepageButton().click();
+    }
 
-    @AfterStep
+    @BeforeStep
     public void afterstep() throws InterruptedException {
         Thread.sleep(500);
     }
     @After
     public void after() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.quit();
     }
 
