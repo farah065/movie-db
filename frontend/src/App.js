@@ -62,7 +62,6 @@ function App() {
             <main className="page-contents">
                 {error === true &&
                 <div style={{display: "flex", justifyContent: "center", zIndex: "10", marginBottom: "12px"}}>
-
                     <div style={{position: "fixed", top: "32px"}}>
                         <div id="error-box">
                             <p id="error-msg"><em>An error has occured, please try again later.</em></p>
